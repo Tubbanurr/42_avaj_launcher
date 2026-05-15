@@ -1,8 +1,8 @@
-package avaj;
+package com.avaj.simulator;
 
-public class JetPlane extends Aircraft {
+public class Helicopter extends Aircraft {
 
-    public JetPlane(long p_id, String p_name, Coordinates p_coordinate) {
+    public Helicopter(long p_id, String p_name, Coordinates p_coordinate) {
         super(p_id, p_name, p_coordinate);
     }
 
@@ -15,26 +15,26 @@ public class JetPlane extends Aircraft {
 
         switch (weather) {
             case "SUN":
-                Logger.log("JetPlane#" + name + "(" + id + "): Clear skies, full throttle!");
-                lat += 10;
+                Logger.log("Helicopter#" + name + "(" + id + "): This is hot.");
+                lon += 10;
                 h   += 2;
                 break;
             case "RAIN":
-                Logger.log("JetPlane#" + name + "(" + id + "): It's raining. Better watch out for lightings.");
-                lat += 5;
+                Logger.log("Helicopter#" + name + "(" + id + "): It's raining. Visibility is low!");
+                lon += 5;
                 break;
             case "FOG":
-                Logger.log("JetPlane#" + name + "(" + id + "): Fog ahead, slowing down.");
-                lat += 1;
+                Logger.log("Helicopter#" + name + "(" + id + "): Fog everywhere, flying blind...");
+                lon += 1;
                 break;
             case "SNOW":
-                Logger.log("JetPlane#" + name + "(" + id + "): OMG! Winter is coming!");
-                h -= 7;
+                Logger.log("Helicopter#" + name + "(" + id + "): My rotor is going to freeze!");
+                h -= 12;
                 break;
         }
 
         if (h <= 0) {
-            Logger.log("JetPlane#" + name + "(" + id + ") landing.");
+            Logger.log("Helicopter#" + name + "(" + id + ") landing.");
             weatherTower.unregister(this);
             return;
         }

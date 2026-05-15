@@ -1,18 +1,21 @@
-package avaj;
+package com.avaj.simulator;
 
-public class AircraftFactory {
+public class AircraftFactory 
+{
     private static AircraftFactory factory;
     private static long idCounter = 0;
 
     private AircraftFactory() {}
 
-    public static AircraftFactory getFactory() {
+    public static AircraftFactory getFactory() 
+    {
         if (factory == null)
             factory = new AircraftFactory();
         return factory;
     }
 
-    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) 
+    {
         idCounter++;
         switch (p_type) {
             case "Helicopter": return new Helicopter(idCounter, p_name, p_coordinates);

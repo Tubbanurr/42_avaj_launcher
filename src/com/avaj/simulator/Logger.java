@@ -1,12 +1,14 @@
-package avaj;
+package com.avaj.simulator;
 
 import java.io.*;
 
-public class Logger {
+public class Logger 
+{
     private static Logger instance;
     private BufferedWriter writer;
 
-    private Logger() {
+    private Logger() 
+    {
         try {
             writer = new BufferedWriter(new FileWriter("simulation.txt"));
         } catch (IOException e) {
@@ -14,13 +16,15 @@ public class Logger {
         }
     }
 
-    public static Logger getInstance() {
+    public static Logger getInstance() 
+    {
         if (instance == null)
             instance = new Logger();
         return instance;
     }
 
-    public static void log(String message) {
+    public static void log(String message) 
+    {
         try {
             getInstance().writer.write(message);
             getInstance().writer.newLine();

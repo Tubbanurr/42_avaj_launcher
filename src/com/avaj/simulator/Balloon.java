@@ -1,13 +1,15 @@
-package avaj;
+package com.avaj.simulator;
 
-public class Balloon extends Aircraft {
+public class Balloon extends Aircraft 
+{
 
     public Balloon(long p_id, String p_name, Coordinates p_coordinate) {
         super(p_id, p_name, p_coordinate);
     }
 
     @Override
-    public void updateConditions() {
+    public void updateConditions() 
+    {
         String weather = weatherTower.getWeather(coordinates);
         int lon = coordinates.getLongitude();
         int lat = coordinates.getLatitude();
@@ -33,7 +35,8 @@ public class Balloon extends Aircraft {
                 break;
         }
 
-        if (h <= 0) {
+        if (h <= 0) 
+        {
             Logger.log("Balloon#" + name + "(" + id + ") landing.");
             weatherTower.unregister(this);
             return;

@@ -1,4 +1,4 @@
-package avaj;
+package com.avaj.simulator;
 
 public class Coordinates
 {
